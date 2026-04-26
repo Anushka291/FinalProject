@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app   # ✅ MUST match service selector
+    spec:
+      containers:
+        - name: flask-container
+          image: calculator-flask   # your docker image name
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3002   # ✅ matches Flask app

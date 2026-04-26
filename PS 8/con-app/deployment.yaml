@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: con-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: con-app
+  template:
+    metadata:
+      labels:
+        app: con-app
+    spec:
+      containers:
+      - name: con-container
+        image: anushkag1234/con-app:v1
+        ports:
+          - containerPort: 7000

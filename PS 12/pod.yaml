@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    app: content-app
+spec:
+  containers:
+    - name: content-app
+      image: docker.io/anushkag1234/content-management-crud:1.0
+      ports:
+        - containerPort: 3000

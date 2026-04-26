@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Add Content</h2>
+
+<form method="POST">
+    Title: <input type="text" name="title"><br>
+    Description: <input type="text" name="desc"><br>
+    <button type="submit">Add</button>
+</form>
+
+<h2>Contents</h2>
+
+<ul>
+    {% for c in data %}
+    <li>
+        {{ c[0] }} - {{ c[1] }}
+        <a href="/delete/{{ loop.index0 }}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

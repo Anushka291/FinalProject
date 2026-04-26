@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration System</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        input { padding: 8px; margin: 5px; width: 250px; }
+        button { padding: 8px 15px; }
+        .msg { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h2>Event Registration Form</h2>
+
+<form method="POST">
+
+    <!-- Name -->
+    <label>Name:</label><br>
+    <input type="text" name="name" required minlength="3"
+           pattern="[A-Za-z ]+"
+           title="Only letters allowed"><br><br>
+
+    <!-- Email -->
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <!-- Event -->
+    <label>Event:</label><br>
+    <input type="text" name="event" required minlength="3"><br><br>
+
+    <!-- Password -->
+    <label>Password:</label><br>
+    <input type="password" name="password" required minlength="6"
+           pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@#$%^&+=]{6,}"
+           title="Must contain letters and numbers"><br><br>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<!-- RESULT MESSAGE -->
+{% if message %}
+    <div class="msg">{{ message }}</div>
+{% endif %}
+
+</body>
+</html>
